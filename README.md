@@ -14,7 +14,7 @@ from file reading.
 
 ```js
 import React from 'react';
-import FileInput from 'react-fileinput';
+import FileInput from 'react-file-reader-input';
 
 
 class MyComponent extends React.Component {
