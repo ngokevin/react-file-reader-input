@@ -1,0 +1,40 @@
+{
+  "name": "react-file-reader-input",
+  "version": "0.0.0",
+  "description": "React file input component for complete control over styling and abstraction from file reading.",
+  "main": "./lib/index.js",
+  "devDependencies": {
+    "babel": "^5.4.7",
+    "babel-runtime": "^5.8.20",
+    "jsdom": "^3.1.2",
+    "mocha": "^2.2.5",
+    "mocha-jsdom": "^1.0.0",
+    "react": "^0.13.3"
+  },
+  "peerDependencies": {
+    "react": "^0.13.3"
+  },
+  "scripts": {
+    "build:lib": "babel --stage 0 src --out-dir lib",
+    "pretest": "babel --stage 0 test.es6 -o test.js && npm run build:lib",
+    "test": "mocha test.js",
+    "prepublish": "npm run build:lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ngokevin/react-file-reader-input"
+  },
+  "keywords": [
+    "react",
+    "file",
+    "input",
+    "reader",
+    "component"
+  ],
+  "author": "Kevin Ngo <me@ngokevin.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ngokevin/react-file-reader-input/issues"
+  },
+  "homepage": "https://github.com/ngokevin/react-file-reader-input"
+}
