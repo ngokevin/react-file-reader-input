@@ -1,20 +1,13 @@
 import assert from 'assert';
-import _jsdom from 'jsdom';
-import mochaJsdom from 'mocha-jsdom';
+import React from 'react/addons';
 
 import FileInput from './lib/index';
 
 
-global.document = _jsdom.jsdom('<html><body></body></html>');
-global.window = document.parentWindow;
-global.navigator = window.navigator;
-const jsdom = mochaJsdom.bind(this, {skipWindowCheck: true});
+const test = React.addons.TestUtils;
 
 
 describe('FileInput', () => {
-  jsdom();
-  const React = require('react/addons');
-
   let div;
   beforeEach(() => {
     div = document.createElement('div');
@@ -24,6 +17,41 @@ describe('FileInput', () => {
   });
 
   it('renders', () => {
-    React.addons.TestUtils.renderIntoDocument(<FileInput/>, div);
+    const fileInput = test.renderIntoDocument(
+      <FileInput className="input"/>, div);
+
+    const input = test.findRenderedDOMComponentWithTag(fileInput, 'input');
+    assert.ok(input);
+    assert.ok(!input.props.children);
+    assert.deepEqual(input.props.style, {});
+    assert.equal(input.props.type, 'file');
+  });
+
+  it('can hide input with children', () => {
+    const fileInput = test.renderIntoDocument(<FileInput className="input">
+      <p>Input</p>
+    </FileInput>, div);
+
+    const input = test.findRenderedDOMComponentWithTag(fileInput, 'input');
+    assert.ok(!input.props.children);
+    assert.ok(Object.keys(input.props.style).length);
+    assert.equal(input.props.type, 'file');
+
+    const p = test.findRenderedDOMComponentWithTag(fileInput, 'p');
+    assert.ok('p');
+  });
+
+  it('can hide input with children', () => {
+    const fileInput = test.renderIntoDocument(<FileInput className="input">
+      <p>Input</p>
+    </FileInput>, div);
+
+    const input = test.findRenderedDOMComponentWithTag(fileInput, 'input');
+    assert.ok(!input.props.children);
+    assert.ok(input.props.style);
+    assert.equal(input.props.type, 'file');
+
+    const p = test.findRenderedDOMComponentWithTag(fileInput, 'p');
+    assert.ok('p');
   });
 });

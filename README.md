@@ -9,6 +9,11 @@ from file reading.
 - **as** (React.PropTypes.string): what format the FileReader should read the
   file as (i.e., ```buffer```, ```binary```, ```url```, ```text```). Defaults
   to ```url```.
+- **children** (React.PropTypes.any): if children is passed into
+  FileReaderInput, then the component will hide the native file input and
+  instead display ```children```. Whenever the custom ```children``` are
+  clicked, the component will trigger the native file input prompt. This
+  allows complete control over styling an display.
 - **onChange** (React.PropTypes.func): callback ```function(event, results)```.
   Results will be an array of arrays, the size of which depending on how many
   files were selected. Each result will be an array of two items:

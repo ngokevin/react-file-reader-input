@@ -64,7 +64,7 @@ export default class FileInput extends React.Component {
     React.findDOMNode(this.refs._reactFileReaderInput).click();
   }
   render() {
-    const hiddenInputStyle = this.props.children ?{
+    const hiddenInputStyle = this.props.children ? {
       // If user passes in children, display children and hide input.
       position: 'absolute',
       top: '-9999px'
