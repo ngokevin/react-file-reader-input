@@ -1,10 +1,10 @@
 react-file-reader-input
 =======================
 
-React file input component for complete control over styling, abstraction
-from file reading, or both!
+React file input component for complete control over styling and abstraction
+from file reading.
 
-## \<FileInput as={dataFormat} onChange={handler} {...props}/\>
+## \<FileReaderInput as={dataFormat} onChange={handler} {...props}/\>
 
 - **as** (React.PropTypes.string): what format the FileReader should read the
   file as (i.e., ```buffer```, ```binary```, ```url```, ```text```). Defaults
@@ -38,9 +38,10 @@ class MyComponent extends React.Component {
   render() {
     <form>
       <label htmlFor="my-file-input">Upload a File:</label>
-      <FileInput as="binary" id="my-file-input" onChange={this.handleChange}>
+      <FileReaderInput as="binary" id="my-file-input"
+                       onChange={this.handleChange}>
         <button>Select a file!</button>
-      </FileInput>
+      </FileReaderInput>
     </form>
   }
 }
