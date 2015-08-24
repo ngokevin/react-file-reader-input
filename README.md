@@ -25,6 +25,9 @@ from file reading.
       [File](https://developer.mozilla.org/docs/Web/API/File) object. You can
       retrieve the file name at ```file.name``` among other things.
 
+All other props on ```FileReaderInput``` will be passed down to the native file
+input.
+
 ### Usage
 
 ```js
