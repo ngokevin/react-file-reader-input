@@ -7,6 +7,10 @@
     "babel": "^5.4.7",
     "babel-runtime": "^5.8.20",
     "jsdom": "^3.1.2",
+    "karma": "^0.13.9",
+    "karma-browserify": "^4.3.0",
+    "karma-firefox-launcher": "^0.1.6",
+    "karma-mocha": "^0.2.0",
     "mocha": "^2.2.5",
     "mocha-jsdom": "^1.0.0",
     "react": "^0.13.3"

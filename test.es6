@@ -2,6 +2,8 @@ import assert from 'assert';
 import _jsdom from 'jsdom';
 import mochaJsdom from 'mocha-jsdom';
 
+import FileInput from './lib/index';
+
 
 global.document = _jsdom.jsdom('<html><body></body></html>');
 global.window = document.parentWindow;
@@ -21,6 +23,7 @@ describe('FileInput', () => {
     React.unmountComponentAtNode(div);
   });
 
-  it('takes a file', () => {
+  it('renders', () => {
+    React.addons.TestUtils.renderIntoDocument(<FileInput/>, div);
   });
 });
