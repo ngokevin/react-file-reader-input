@@ -1,6 +1,6 @@
 {
   "name": "react-file-reader-input",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React file input component for complete control over styling and abstraction from file reading.",
   "main": "./lib/index.js",
   "devDependencies": {
@@ -31,7 +31,11 @@
     "file",
     "input",
     "reader",
-    "component"
+    "component",
+    "react-component",
+    "filereader",
+    "file-reader",
+    "fake"
   ],
   "author": "Kevin Ngo <me@ngokevin.com>",
   "license": "MIT",
