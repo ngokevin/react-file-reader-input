@@ -44,13 +44,15 @@ class MyComponent extends React.Component {
     });
   }
   render() {
-    <form>
-      <label htmlFor="my-file-input">Upload a File:</label>
-      <FileReaderInput as="binary" id="my-file-input"
-                       onChange={this.handleChange}>
-        <button>Select a file!</button>
-      </FileReaderInput>
-    </form>
+    return (
+      <form>
+        <label htmlFor="my-file-input">Upload a File:</label>
+        <FileReaderInput as="binary" id="my-file-input"
+                         onChange={this.handleChange}>
+          <button>Select a file!</button>
+        </FileReaderInput>
+      </form>
+    );
   }
 }
 ```
