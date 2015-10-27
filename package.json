@@ -1,6 +1,6 @@
 {
   "name": "react-file-reader-input",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "React file input component for complete control over styling and abstraction from file reading.",
   "main": "./lib/index.js",
   "devDependencies": {
@@ -11,10 +11,12 @@
     "karma-firefox-launcher": "^0.1.6",
     "karma-mocha": "^0.2.0",
     "mocha": "^2.2.5",
-    "react": "^0.13.3"
+    "react": "^0.14.0",
+    "react-dom": "*"
   },
   "peerDependencies": {
-    "react": "^0.13.3"
+    "react": "^0.14.0",
+    "react-dom": "*"
   },
   "scripts": {
     "build:lib": "babel --stage 0 src --out-dir lib",

@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 
 export default class FileInput extends React.Component {
@@ -61,7 +62,7 @@ export default class FileInput extends React.Component {
     });
   }
   triggerInput = e => {
-    React.findDOMNode(this.refs._reactFileReaderInput).click();
+    ReactDOM.findDOMNode(this.refs._reactFileReaderInput).click();
   }
   render() {
     const hiddenInputStyle = this.props.children ? {
