@@ -62,7 +62,7 @@ export default class FileInput extends React.Component {
     });
   }
   triggerInput = e => {
-    ReactDOM.findDOMNode(this.refs._reactFileReaderInput).click();
+    ReactDOM.findDOMNode(this.input).click();
   }
   render() {
     const hiddenInputStyle = this.props.children ? {
@@ -72,7 +72,8 @@ export default class FileInput extends React.Component {
     } : {};
 
     return <div className="_react-file-reader-input"
-                onClick={this.triggerInput}>
+                onClick={this.triggerInput}
+                ref={div => { this.input = div.querySelector('input'); }}>
       <input {...this.props} children={undefined} type="file"
              onChange={this.handleChange} ref="_reactFileReaderInput"
              style={hiddenInputStyle}/>
