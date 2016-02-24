@@ -32,7 +32,7 @@ input.
 
 ```js
 import React from 'react';
-import FileInput from 'react-file-reader-input';
+import FileReaderInput from 'react-file-reader-input';
 
 
 class MyComponent extends React.Component {
