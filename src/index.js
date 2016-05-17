@@ -12,7 +12,7 @@ export default class FileInput extends React.Component {
     // FileReader compatibility warning.
     super(props);
 
-    const win = window;
+    const win = typeof window === 'object' ? window : {};
     if (!win.File || !win.FileReader || !win.FileList || !win.Blob) {
       console.warn(
         '[react-file-reader-input] Some file APIs detected as not supported.' +
@@ -62,7 +62,7 @@ export default class FileInput extends React.Component {
     });
   }
   triggerInput = e => {
-    ReactDOM.findDOMNode(this.refs._reactFileReaderInput).click();
+    ReactDOM.findDOMNode(this._reactFileReaderInput).click();
   }
   render() {
     const hiddenInputStyle = this.props.children ? {
@@ -74,7 +74,7 @@ export default class FileInput extends React.Component {
     return <div className="_react-file-reader-input"
                 onClick={this.triggerInput}>
       <input {...this.props} children={undefined} type="file"
-             onChange={this.handleChange} ref="_reactFileReaderInput"
+             onChange={this.handleChange} ref={c => this._reactFileReaderInput = c}
              style={hiddenInputStyle}/>
 
       {this.props.children}
