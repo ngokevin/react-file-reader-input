@@ -13,7 +13,7 @@ export default class FileInput extends React.Component {
     super(props);
 
     const win = typeof window === 'object' ? window : {};
-    if (!win.File || !win.FileReader || !win.FileList || !win.Blob) {
+    if ((typeof window === 'object') && (!win.File || !win.FileReader || !win.FileList || !win.Blob)) {
       console.warn(
         '[react-file-reader-input] Some file APIs detected as not supported.' +
         ' File reader functionality may not fully work.'
