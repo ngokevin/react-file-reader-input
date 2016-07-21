@@ -11,7 +11,7 @@
     "karma-firefox-launcher": "^0.1.6",
     "karma-mocha": "^0.2.0",
     "mocha": "^2.2.5",
-    "react": "^0.14.0",
+    "react": "^15.0.0",
     "react-dom": "*"
   },
   "peerDependencies": {
