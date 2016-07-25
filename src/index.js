@@ -70,10 +70,12 @@ export default class FileInput extends React.Component {
       position: 'absolute',
       top: '-9999px'
     } : {};
+    
+    const { as, ...props } = this.props;
 
     return <div className="_react-file-reader-input"
                 onClick={this.triggerInput}>
-      <input {...this.props} children={undefined} type="file"
+      <input {...props} children={undefined} type="file"
              onChange={this.handleChange} ref="_reactFileReaderInput"
              style={hiddenInputStyle}/>
 
