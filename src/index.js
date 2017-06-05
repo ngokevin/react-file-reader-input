@@ -75,6 +75,7 @@ export default class FileInput extends React.Component {
                 onClick={this.triggerInput}>
       <input {...this.props} children={undefined} type="file"
              onChange={this.handleChange} ref={c => this._reactFileReaderInput = c}
+             onClick={() => {this._reactFileReaderInput.value = null;}}
              style={hiddenInputStyle}/>
 
       {this.props.children}
