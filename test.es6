@@ -1,11 +1,8 @@
 import assert from 'assert';
-import React from 'react/addons';
+import React from 'react';
+import test from 'react-dom/test-utils';
 
 import FileInput from './lib/index';
-
-
-const test = React.addons.TestUtils;
-
 
 describe('FileInput', () => {
   let div;
@@ -22,9 +19,8 @@ describe('FileInput', () => {
 
     const input = test.findRenderedDOMComponentWithTag(fileInput, 'input');
     assert.ok(input);
-    assert.ok(!input.props.children);
-    assert.deepEqual(input.props.style, {});
-    assert.equal(input.props.type, 'file');
+    assert.notOk(input.children.length);
+    assert.equal(input.getAttribute('type'), 'file');
   });
 
   it('can hide input with children', () => {
