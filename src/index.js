@@ -78,7 +78,7 @@ export default class FileInput extends React.Component {
     const {as, style, ...props} = this.props;
 
     return (
-      <div className="_react-file-reader-input" onClick={this.triggerInput} style={props.style}>
+      <div className="_react-file-reader-input" onClick={this.triggerInput} style={style}>
         <input {...props} children={undefined} type="file"
                onChange={this.handleChange} ref={c => this._reactFileReaderInput = c}
                onClick={() => {this._reactFileReaderInput.value = null;}}
