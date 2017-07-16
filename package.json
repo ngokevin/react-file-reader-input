@@ -22,8 +22,8 @@
   },
   "scripts": {
     "build:lib": "babel --stage 0 src --out-dir lib",
-    "pretest": "babel --stage 0 test.es6 -o test.js && npm run build:lib",
-    "test": "karma start",
+    "pretest": "babel --stage 0 tests/test.es6 -o tests/test.js && npm run build:lib",
+    "test": "karma start ./tests/karma.conf.js",
     "prepublish": "npm run build:lib"
   },
   "repository": {
@@ -46,5 +46,8 @@
   "bugs": {
     "url": "https://github.com/ngokevin/react-file-reader-input/issues"
   },
-  "homepage": "https://github.com/ngokevin/react-file-reader-input"
+  "homepage": "https://github.com/ngokevin/react-file-reader-input",
+  "dependencies": {
+    "karma": "^0.13.22"
+  }
 }
