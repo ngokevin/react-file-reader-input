@@ -8,6 +8,7 @@ export default class FileInput extends React.Component {
     children: PropTypes.any,
     onChange: PropTypes.func,
   }
+
   constructor(props) {
     // FileReader compatibility warning.
     super(props);
@@ -20,6 +21,7 @@ export default class FileInput extends React.Component {
       );
     }
   }
+
   handleChange = e => {
     const files = [];
     for (let i = 0; i < e.target.files.length; i++) {
@@ -61,9 +63,11 @@ export default class FileInput extends React.Component {
       this.props.onChange(e, zippedResults);
     });
   }
+
   triggerInput = e => {
     ReactDOM.findDOMNode(this._reactFileReaderInput).click();
   }
+
   render() {
     const hiddenInputStyle = this.props.children ? {
       // If user passes in children, display children and hide input.
@@ -71,14 +75,16 @@ export default class FileInput extends React.Component {
       top: '-9999px'
     } : {};
 
-    return <div className="_react-file-reader-input"
-                onClick={this.triggerInput}>
-      <input {...this.props} children={undefined} type="file"
-             onChange={this.handleChange} ref={c => this._reactFileReaderInput = c}
-             onClick={() => {this._reactFileReaderInput.value = null;}}
-             style={hiddenInputStyle}/>
+    const {as, style, ...props} = this.props;
 
-      {this.props.children}
-    </div>
+    return (
+      <div className="_react-file-reader-input" onClick={this.triggerInput} style={props.style}>
+        <input {...props} children={undefined} type="file"
+               onChange={this.handleChange} ref={c => this._reactFileReaderInput = c}
+               onClick={() => {this._reactFileReaderInput.value = null;}}
+               style={hiddenInputStyle}/>
+        {this.props.children}
+      </div>
+    );
   }
 }
