@@ -69,21 +69,24 @@ export default class FileInput extends React.Component {
   }
 
   render() {
-    const hiddenInputStyle = this.props.children ? {
+    const { as, children, style, ...props } = this.props;
+
+    const hiddenInputStyle = children ? {
       // If user passes in children, display children and hide input.
       position: 'absolute',
       top: '-9999px'
     } : {};
 
-    const {as, style, ...props} = this.props;
-
     return (
       <div className="_react-file-reader-input" onClick={this.triggerInput} style={style}>
-        <input {...props} children={undefined} type="file"
-               onChange={this.handleChange} ref={c => this._reactFileReaderInput = c}
-               onClick={() => {this._reactFileReaderInput.value = null;}}
-               style={hiddenInputStyle}/>
-        {this.props.children}
+        <input
+          {...props}
+          type="file"
+          onChange={this.handleChange} ref={(c) => { this._reactFileReaderInput = c; }}
+          onClick={() => { this._reactFileReaderInput.value = null; }}
+          style={hiddenInputStyle}
+        />
+        {children}
       </div>
     );
   }
