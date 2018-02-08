@@ -7,26 +7,33 @@
     "prop-types": "^15.6.0"
   },
   "devDependencies": {
-    "babel": "^5.4.7",
-    "babel-runtime": "^5.8.20",
-    "karma": "^0.13.9",
-    "karma-browserify": "^4.3.0",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-es2015-classes": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "browserify": "^16.0.0",
+    "karma": "^2.0.0",
+    "karma-browserify": "^5.2.0",
     "karma-chrome-launcher": "^2.2.0",
-    "karma-firefox-launcher": "^0.1.6",
-    "karma-mocha": "^0.2.0",
-    "mocha": "^2.2.5",
+    "karma-firefox-launcher": "^1.1.0",
+    "karma-mocha": "^1.3.0",
+    "mocha": "^5.0.0",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "watchify": "^3.10.0"
   },
   "peerDependencies": {
     "react": "^15.0.0 || ^16.0.0",
     "react-dom": "^15.0.0 || ^16.0.0"
   },
   "scripts": {
-    "build:lib": "babel --stage 0 src --out-dir lib",
-    "pretest": "babel --stage 0 tests/test.es6 -o tests/test.js && npm run build:lib",
+    "build:lib": "babel --out-dir lib src",
+    "pretest": "babel --out-file tests/test.js tests/test.es6 && npm run build:lib",
     "test": "karma start ./tests/karma.conf.js",
-    "prepublish": "npm run build:lib"
+    "prepublishOnly": "npm run build:lib"
   },
   "repository": {
     "type": "git",
