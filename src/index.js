@@ -1,15 +1,18 @@
-import React from 'react';
+// @flow
+import * as React from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
 
-export default class FileInput extends React.Component {
-  static propTypes = {
-    as: PropTypes.oneOf(['binary', 'buffer', 'text', 'url']),
-    children: PropTypes.any,
-    onChange: PropTypes.func,
-  }
+type Props = {
+  as?: 'binary' | 'buffer' | 'text' | 'url',
+  children?: React.Node,
+  onChange: Function,
+  style?: Object
+};
 
-  constructor(props) {
+export default class FileInput extends React.Component<Props> {
+  _reactFileReaderInput: any;
+
+  constructor(props: Props) {
     // FileReader compatibility warning.
     super(props);
 
@@ -22,7 +25,7 @@ export default class FileInput extends React.Component {
     }
   }
 
-  handleChange = (e) => {
+  handleChange = (e: any) => {
     const files = Array.prototype.slice.call(e.target.files); // Convert into Array
     const readAs = (this.props.as || 'url').toLowerCase();
 
@@ -38,7 +41,7 @@ export default class FileInput extends React.Component {
       // Read the file with format based on this.props.as.
       switch (readAs) {
         case 'binary': {
-          reader.readAsBinaryString(file);
+          (reader: any).readAsBinaryString(file);
           break;
         }
         case 'buffer': {
@@ -61,8 +64,11 @@ export default class FileInput extends React.Component {
     });
   }
 
-  triggerInput = e => {
-    ReactDOM.findDOMNode(this._reactFileReaderInput).click();
+  triggerInput = () => {
+    const input = ((ReactDOM.findDOMNode(this._reactFileReaderInput): any): HTMLInputElement);
+    if (input) {
+      input.click();
+    }
   }
 
   render() {
@@ -79,7 +85,8 @@ export default class FileInput extends React.Component {
         <input
           {...props}
           type="file"
-          onChange={this.handleChange} ref={(c) => { this._reactFileReaderInput = c; }}
+          ref={(c) => { this._reactFileReaderInput = c; }}
+          onChange={this.handleChange}
           onClick={() => { this._reactFileReaderInput.value = null; }}
           style={hiddenInputStyle}
         />
