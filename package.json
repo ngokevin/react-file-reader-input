@@ -48,8 +48,5 @@
   "bugs": {
     "url": "https://github.com/ngokevin/react-file-reader-input/issues"
   },
-  "homepage": "https://github.com/ngokevin/react-file-reader-input",
-  "dependencies": {
-    "karma": "^0.13.22"
-  }
+  "homepage": "https://github.com/ngokevin/react-file-reader-input"
 }
