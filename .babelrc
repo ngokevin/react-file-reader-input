@@ -1,0 +1,12 @@
+{
+  "presets": [
+    "react",
+    "env"
+  ],
+  "plugins": [
+    "transform-class-properties",
+    "transform-es2015-classes",
+    "transform-object-rest-spread",
+    "transform-react-remove-prop-types"
+  ]
+}
