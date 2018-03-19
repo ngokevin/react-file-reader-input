@@ -3,18 +3,17 @@
   "version": "1.1.4",
   "description": "React file input component for complete control over styling and abstraction from file reading.",
   "main": "./lib/index.js",
-  "dependencies": {
-    "prop-types": "^15.6.0"
-  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-es2015-classes": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
     "browserify": "^16.0.0",
+    "flow": "^0.2.3",
+    "flow-bin": "^0.68.0",
     "karma": "^2.0.0",
     "karma-browserify": "^5.2.0",
     "karma-chrome-launcher": "^2.2.0",
@@ -31,7 +30,9 @@
   },
   "scripts": {
     "build:lib": "babel --out-dir lib src",
-    "pretest": "babel --out-file tests/test.js tests/test.es6 && npm run build:lib",
+    "build:tests": "babel --out-file tests/test.js tests/test.es6",
+    "flow": "flow check",
+    "pretest": "npm run flow && npm run build:tests && npm run build:lib",
     "test": "karma start ./tests/karma.conf.js",
     "prepublishOnly": "npm run build:lib"
   },
