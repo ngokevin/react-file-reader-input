@@ -1,6 +1,6 @@
 {
   "name": "react-file-reader-input",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "React file input component for complete control over styling and abstraction from file reading.",
   "main": "./lib/index.js",
   "devDependencies": {
