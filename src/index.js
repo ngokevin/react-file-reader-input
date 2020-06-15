@@ -76,8 +76,7 @@ export default class FileInput extends React.Component<Props> {
 
     const hiddenInputStyle = children ? {
       // If user passes in children, display children and hide input.
-      position: 'absolute',
-      top: '-9999px'
+      display: 'none'
     } : {};
 
     return (
